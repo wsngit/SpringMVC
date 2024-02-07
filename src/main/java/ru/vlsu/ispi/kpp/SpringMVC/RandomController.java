@@ -4,33 +4,29 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping("/random")
+@RequestMapping(value = {"/", "/random", "/rnd"})
 public class RandomController {
 
     @Autowired
     private ApplicationContext appContext;
 
-    @GetMapping("/one")
+    @GetMapping({"", "/", "/one/**", })
+    @PostMapping("/")
+    @PutMapping("/")
+    @DeleteMapping("/")
+    @PatchMapping("/")
     public String oneRandom(Model model) {
-        RandomService randomService = (RandomService) appContext.getBean("singletonService");
-        model.addAttribute("random", randomService.get());
-        return "random";
-    }
-
-    @GetMapping("/request")
-    public String requestRandom(Model model) {
         RandomService randomService = (RandomService) appContext.getBean("requestService");
         model.addAttribute("random", randomService.get());
         return "random";
     }
 
-    @GetMapping("/session")
-    public String sessionRandom(Model model) {
-        RandomService randomService = (RandomService) appContext.getBean("sessionService");
+    @RequestMapping(value = "/two", method = { RequestMethod.GET, RequestMethod.POST })
+    public String twoRandom(Model model) {
+        RandomService randomService = (RandomService) appContext.getBean("requestService");
         model.addAttribute("random", randomService.get());
         return "random";
     }

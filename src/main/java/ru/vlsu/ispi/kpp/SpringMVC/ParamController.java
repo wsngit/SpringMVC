@@ -1,4 +1,5 @@
 package ru.vlsu.ispi.kpp.SpringMVC;
+import org.springframework.http.HttpHeaders;
 import org.springframework.web.bind.annotation.*;
 import ru.vlsu.ispi.kpp.SpringMVC.pojo.RandomParams;
 
@@ -53,4 +54,18 @@ public class ParamController {
         return rnd;
     }
 
+    @GetMapping("/headers")
+    public String headers(@RequestHeader(HttpHeaders.ACCEPT_LANGUAGE) String language) {
+        return language;
+    }
+
+    @GetMapping("/headers2")
+    public String headers2(@RequestHeader("Host") String language) {
+        return language;
+    }
+
+    @GetMapping("/headers3")
+    public Map headers3(@RequestHeader Map<String, String> headers) {
+        return headers;
+    }
 }

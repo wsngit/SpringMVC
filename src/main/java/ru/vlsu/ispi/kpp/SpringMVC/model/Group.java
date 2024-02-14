@@ -3,6 +3,8 @@ package ru.vlsu.ispi.kpp.SpringMVC.model;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "groups")
 public class Group {
@@ -10,8 +12,14 @@ public class Group {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(name="gruop_name", nullable = false,
+    @Column(name="group_name", nullable = false,
             length = 32, unique = true)
     private String name;
+
+    @OneToMany(mappedBy="group")
+    private List<Student> students;
+
+    @ManyToMany(mappedBy = "groups")
+    private List<Course> courses;
 
 }

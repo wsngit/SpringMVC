@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name = "tests")
+@Table(name = "test_results")
 public class TestResult {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,4 +15,12 @@ public class TestResult {
     private Date date;
 
     private int result;
+
+    @ManyToOne
+    @JoinColumn(name="student", nullable=false)
+    private Student student;
+
+    @ManyToOne
+    @JoinColumn(name="test", nullable=false)
+    private Test test;
 }

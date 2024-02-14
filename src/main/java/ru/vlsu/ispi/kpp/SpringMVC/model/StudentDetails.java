@@ -20,4 +20,9 @@ public class StudentDetails {
 
     private Date birthdate;
 
+    @OneToOne
+    @JoinColumn(name = "student_id", referencedColumnName = "id")
+    private Student student;
+
+
 }

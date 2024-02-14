@@ -2,6 +2,8 @@ package ru.vlsu.ispi.kpp.SpringMVC.model;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "tests")
 public class Test {
@@ -10,5 +12,13 @@ public class Test {
     private long id;
 
     @Column(nullable = false, length = 32)
-    String name;
+    private String name;
+
+    @ManyToOne
+    @JoinColumn(name="course", nullable=false)
+    private Course course;
+
+    @OneToMany(mappedBy="test")
+    private List<TestResult> testResults;
+
 }

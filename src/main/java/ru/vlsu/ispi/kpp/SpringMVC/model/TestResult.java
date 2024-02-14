@@ -10,7 +10,9 @@ public class TestResult {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    
+
     @Temporal(TemporalType.TIMESTAMP)
     private Date date;
+
+    private int result;
 }

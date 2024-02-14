@@ -1,12 +1,14 @@
 package ru.vlsu.ispi.kpp.SpringMVC.model;
 
 import jakarta.persistence.*;
+import lombok.Data;
 
 import java.util.Date;
 
 @Entity
 @Table(name = "student_details",
         uniqueConstraints = { @UniqueConstraint(columnNames = { "first_name", "last_name" }) })
+@Data
 public class StudentDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

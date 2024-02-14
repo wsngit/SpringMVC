@@ -1,12 +1,14 @@
 package ru.vlsu.ispi.kpp.SpringMVC.model;
 
 import jakarta.persistence.*;
+import lombok.Data;
 
 import java.util.List;
 
 
 @Entity
 @Table(name = "students")
+@Data
 public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

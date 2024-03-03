@@ -15,7 +15,7 @@ import java.util.List;
 public interface CourseRepository extends JpaRepository<Course, Long> {
 
     @Query("SELECT c FROM Course c WHERE :group MEMBER OF c.groups")
-    ist<Course> findAllByGroup(@Param("group") Group group);
+    List<Course> findAllByGroup(@Param("group") Group group);
 
     @Query("SELECT c FROM Course c LEFT JOIN Student s ON s.group MEMBER OF c.groups WHERE s = :student")
     List<Course> findAllByStudent(@Param("student") Student student);

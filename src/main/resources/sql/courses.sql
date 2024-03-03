@@ -1,0 +1,20 @@
+insert into courses (id, name) values (1, "Разработка пользовательских интерфейсов веб-приложений")
+insert into courses (id, name) values (2, "Тестирование ПО")
+insert into courses (id, name) values (3, "Кроссплатформенное программирование")
+insert into courses (id, name) values (4, "АдБ ПИС")
+insert into courses (id, name) values (5, "Русский язык")
+insert into courses (id, name) values (6, "История России")
+
+insert into groups_courses (course_id, group_id) values(1,1)
+insert into groups_courses (course_id, group_id) values(2,1)
+insert into groups_courses (course_id, group_id) values(3,1)
+insert into groups_courses (course_id, group_id) values(4,1)
+insert into groups_courses (course_id, group_id) values(5,1)
+insert into groups_courses (course_id, group_id) values(6,1)
+
+insert into groups_courses (course_id, group_id) values(3,2)
+insert into groups_courses (course_id, group_id) values(4,2)
+insert into groups_courses (course_id, group_id) values(5,2)
+
+insert into groups_courses (course_id, group_id) values(5,3)
+insert into groups_courses (course_id, group_id) values(6,3)

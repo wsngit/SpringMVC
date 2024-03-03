@@ -2,18 +2,20 @@ package ru.vlsu.ispi.kpp.SpringMVC.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 
 @Entity
 @Table(name = "courses")
 @Data
+@NoArgsConstructor
 public class Course {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(nullable = false, length = 32, unique = true)
+    @Column(nullable = false, length = 64, unique = true)
     private String name;
 
     @ManyToMany
@@ -25,4 +27,8 @@ public class Course {
 
     @OneToMany(mappedBy="course")
     private List<Test> tests;
+
+    public Course(String name){
+        this.name = name;
+    }
 }

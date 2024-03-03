@@ -1,0 +1,394 @@
+{
+	"info": {
+		"_postman_id": "0527d0df-9afc-43a5-a92d-7e7f8632d626",
+		"name": "SpringMVC",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5232999"
+	},
+	"item": [
+		{
+			"name": "Course",
+			"item": [
+				{
+					"name": "Add Course",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Кроссплатформенное программирование\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base}}/course/add",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"course",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Courses",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base}}/courses",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"courses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Courses by Group Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base}}/group/:gid/courses",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"group",
+								":gid",
+								"courses"
+							],
+							"variable": [
+								{
+									"key": "gid",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Courses by Student Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base}}/student/:sid/courses",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"student",
+								":sid",
+								"courses"
+							],
+							"variable": [
+								{
+									"key": "sid",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Rename Course",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{base}}/course/rename?cid=1&newName=new Course name",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"course",
+								"rename"
+							],
+							"query": [
+								{
+									"key": "cid",
+									"value": "1"
+								},
+								{
+									"key": "newName",
+									"value": "new Course name"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Get Groups",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base}}/groups",
+					"host": [
+						"{{base}}"
+					],
+					"path": [
+						"groups"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Group By ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base}}/group/:gid",
+					"host": [
+						"{{base}}"
+					],
+					"path": [
+						"group",
+						":gid"
+					],
+					"variable": [
+						{
+							"key": "gid",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Group By Name",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base}}/group/byName?gname=ПРИк-221",
+					"host": [
+						"{{base}}"
+					],
+					"path": [
+						"group",
+						"byName"
+					],
+					"query": [
+						{
+							"key": "gname",
+							"value": "ПРИк-221"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Students By Group Name",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base}}/students?gname=ПРИк-221",
+					"host": [
+						"{{base}}"
+					],
+					"path": [
+						"students"
+					],
+					"query": [
+						{
+							"key": "gname",
+							"value": "ПРИк-221"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Students By Group ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base}}/group/:gid/students",
+					"host": [
+						"{{base}}"
+					],
+					"path": [
+						"group",
+						":gid",
+						"students"
+					],
+					"variable": [
+						{
+							"key": "gid",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Students - Pageable",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base}}/students?page=0&pageSize=5",
+					"host": [
+						"{{base}}"
+					],
+					"path": [
+						"students"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "0"
+						},
+						{
+							"key": "pageSize",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Group",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"ПРИк-221\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base}}/group/add",
+					"host": [
+						"{{base}}"
+					],
+					"path": [
+						"group",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Student",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"details\": {\r\n        \"firstName\": \"Владимир\",\r\n        \"lastName\": \"Петров\",\r\n        \"birthdate\": \"27-02-1990\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base}}/group/:gid/addStudent",
+					"host": [
+						"{{base}}"
+					],
+					"path": [
+						"group",
+						":gid",
+						"addStudent"
+					],
+					"variable": [
+						{
+							"key": "gid",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base",
+			"value": "http://192.168.56.102:8888",
+			"type": "string"
+		}
+	]
+}

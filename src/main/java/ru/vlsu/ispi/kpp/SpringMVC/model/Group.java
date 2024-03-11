@@ -1,7 +1,9 @@
 package ru.vlsu.ispi.kpp.SpringMVC.model;
 
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,8 +16,8 @@ import java.util.List;
 @NoArgsConstructor
 @JsonIgnoreProperties(value = { "students", "courses" })
 public class Group {
-
-    public Group(String name){
+    @JsonCreator
+    public Group(@JsonProperty("name") String name){
         this.name = name;
     }
 

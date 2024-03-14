@@ -2,7 +2,7 @@ package ru.vlsu.ispi.kpp.SpringMVC;
 
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-import ru.vlsu.ispi.kpp.SpringMVC.model.Course;
+import ru.vlsu.ispi.kpp.SpringMVC.model.course.Course;
 import ru.vlsu.ispi.kpp.SpringMVC.service.CourseService;
 
 import java.util.List;

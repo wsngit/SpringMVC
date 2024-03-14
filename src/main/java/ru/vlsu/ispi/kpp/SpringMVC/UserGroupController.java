@@ -2,8 +2,8 @@ package ru.vlsu.ispi.kpp.SpringMVC;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import ru.vlsu.ispi.kpp.SpringMVC.model.Group;
-import ru.vlsu.ispi.kpp.SpringMVC.model.Student;
+import ru.vlsu.ispi.kpp.SpringMVC.model.student.Group;
+import ru.vlsu.ispi.kpp.SpringMVC.model.student.Student;
 import ru.vlsu.ispi.kpp.SpringMVC.service.StudentGroupService;
 
 import java.util.List;

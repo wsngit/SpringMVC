@@ -1,10 +1,10 @@
-package ru.vlsu.ispi.kpp.SpringMVC.repo;
+package ru.vlsu.ispi.kpp.SpringMVC.repo.student;
 
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
-import ru.vlsu.ispi.kpp.SpringMVC.model.Group;
-import ru.vlsu.ispi.kpp.SpringMVC.model.Student;
+import ru.vlsu.ispi.kpp.SpringMVC.model.student.Group;
+import ru.vlsu.ispi.kpp.SpringMVC.model.student.Student;
 
 import java.util.List;
 import java.util.Optional;

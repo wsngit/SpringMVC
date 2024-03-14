@@ -1,8 +1,9 @@
-package ru.vlsu.ispi.kpp.SpringMVC.model;
+package ru.vlsu.ispi.kpp.SpringMVC.model.course;
 
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import ru.vlsu.ispi.kpp.SpringMVC.model.student.Group;
 
 import java.util.List;
 

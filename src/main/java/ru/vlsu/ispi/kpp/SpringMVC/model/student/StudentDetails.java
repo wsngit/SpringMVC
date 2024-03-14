@@ -1,4 +1,4 @@
-package ru.vlsu.ispi.kpp.SpringMVC.model;
+package ru.vlsu.ispi.kpp.SpringMVC.model.student;
 
 import com.fasterxml.jackson.annotation.*;
 import jakarta.persistence.*;

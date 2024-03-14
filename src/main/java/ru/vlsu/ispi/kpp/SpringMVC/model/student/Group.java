@@ -1,4 +1,4 @@
-package ru.vlsu.ispi.kpp.SpringMVC.model;
+package ru.vlsu.ispi.kpp.SpringMVC.model.student;
 
 
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -7,6 +7,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import ru.vlsu.ispi.kpp.SpringMVC.model.course.Course;
 
 import java.util.List;
 

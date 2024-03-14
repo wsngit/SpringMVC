@@ -2,12 +2,12 @@ package ru.vlsu.ispi.kpp.SpringMVC.service;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
-import ru.vlsu.ispi.kpp.SpringMVC.model.Course;
-import ru.vlsu.ispi.kpp.SpringMVC.model.Group;
-import ru.vlsu.ispi.kpp.SpringMVC.model.Student;
-import ru.vlsu.ispi.kpp.SpringMVC.repo.CourseRepository;
-import ru.vlsu.ispi.kpp.SpringMVC.repo.GroupRepository;
-import ru.vlsu.ispi.kpp.SpringMVC.repo.StudentRepository;
+import ru.vlsu.ispi.kpp.SpringMVC.model.course.Course;
+import ru.vlsu.ispi.kpp.SpringMVC.model.student.Group;
+import ru.vlsu.ispi.kpp.SpringMVC.model.student.Student;
+import ru.vlsu.ispi.kpp.SpringMVC.repo.course.CourseRepository;
+import ru.vlsu.ispi.kpp.SpringMVC.repo.student.GroupRepository;
+import ru.vlsu.ispi.kpp.SpringMVC.repo.student.StudentRepository;
 
 import java.util.List;
 import java.util.Optional;

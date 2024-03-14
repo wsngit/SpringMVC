@@ -1,6 +1,4 @@
 version: '3'
-volumes:
-  data:
 services:
   db:
     image: mariadb:latest
@@ -13,3 +11,14 @@ services:
       - ./data:/var/lib/mysql
     ports:
       - "3306:3306"
+  db2:
+    image: mariadb:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    volumes:
+      - ./data2:/var/lib/mysql
+    ports:
+      - "3307:3306"

@@ -7,10 +7,10 @@ import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
-import ru.vlsu.ispi.kpp.SpringMVC.model.Group;
-import ru.vlsu.ispi.kpp.SpringMVC.model.Student;
-import ru.vlsu.ispi.kpp.SpringMVC.repo.GroupRepository;
-import ru.vlsu.ispi.kpp.SpringMVC.repo.StudentRepository;
+import ru.vlsu.ispi.kpp.SpringMVC.model.student.Group;
+import ru.vlsu.ispi.kpp.SpringMVC.model.student.Student;
+import ru.vlsu.ispi.kpp.SpringMVC.repo.student.GroupRepository;
+import ru.vlsu.ispi.kpp.SpringMVC.repo.student.StudentRepository;
 
 import java.util.ArrayList;
 import java.util.List;

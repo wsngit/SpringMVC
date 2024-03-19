@@ -1,4 +1,4 @@
-package ru.vlsu.ispi.kpp.SpringMVC.model.course;
+package ru.vlsu.ispi.kpp.SpringMVC.model.student;
 
 import jakarta.persistence.*;
 import lombok.Data;

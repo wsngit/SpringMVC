@@ -1,11 +1,11 @@
-package ru.vlsu.ispi.kpp.SpringMVC.repo.course;
+package ru.vlsu.ispi.kpp.SpringMVC.repo.student;
 
 import jakarta.transaction.Transactional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
-import ru.vlsu.ispi.kpp.SpringMVC.model.course.Course;
+import ru.vlsu.ispi.kpp.SpringMVC.model.student.Course;
 import ru.vlsu.ispi.kpp.SpringMVC.model.student.Group;
 import ru.vlsu.ispi.kpp.SpringMVC.model.student.Student;
 

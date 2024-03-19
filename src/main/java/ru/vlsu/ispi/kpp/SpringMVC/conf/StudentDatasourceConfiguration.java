@@ -2,6 +2,7 @@ package ru.vlsu.ispi.kpp.SpringMVC.conf;
 
 import jakarta.persistence.EntityManagerFactory;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceProperties;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.orm.jpa.EntityManagerFactoryBuilder;
@@ -15,6 +16,8 @@ import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
+import java.util.HashMap;
+import java.util.Map;
 
 @Configuration
 @EnableTransactionManagement
@@ -23,6 +26,12 @@ import javax.sql.DataSource;
         transactionManagerRef = "studentTransactionManager",
         basePackages = { "ru.vlsu.ispi.kpp.SpringMVC.repo.student" })
 public class StudentDatasourceConfiguration {
+    @Value("${spring.jpa.hibernate.ddl-auto}")
+    private String ddl_auto;
+
+    @Value("${spring.datasource.student.data}")
+    private String data_file;
+
     @Primary
     @Bean(name="studentProperties")
     @ConfigurationProperties("spring.datasource.student")
@@ -43,9 +52,13 @@ public class StudentDatasourceConfiguration {
             EntityManagerFactoryBuilder builder,
             @Qualifier("studentDatasource") DataSource dataSource
     ){
+        Map<String, Object> properties = new HashMap<String, Object>();
+        properties.put("hibernate.hbm2ddl.auto", ddl_auto);
         return builder.dataSource(dataSource)
                 .packages("ru.vlsu.ispi.kpp.SpringMVC.model.student")
-                .persistenceUnit("students").build();
+                .persistenceUnit("students")
+                .properties(properties)
+                .build();
     }
 
     @Primary

@@ -1,4 +1,4 @@
-package ru.vlsu.ispi.kpp.SpringMVC.model.student;
+package ru.vlsu.ispi.kpp.SpringMVC.model.info;
 
 import com.fasterxml.jackson.annotation.*;
 import jakarta.persistence.*;
@@ -6,7 +6,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
-import java.util.Map;
 
 @Entity
 @Table(name = "student_details",
@@ -31,18 +30,5 @@ public class StudentDetails {
             (shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
     private Date birthdate;
 
-    @OneToOne(mappedBy = "details")
-    @JsonIgnore
-    private Student student;
-
-    @JsonRawValue
-    public String json;
-
-    @Transient
-    private Map<String, String> properties;
-
-    @JsonAnySetter
-    public void add(String key, String value) {
-        properties.put(key, value);
-    }
+    private long student;
 }

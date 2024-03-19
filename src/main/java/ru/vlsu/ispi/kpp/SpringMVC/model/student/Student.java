@@ -5,7 +5,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import ru.vlsu.ispi.kpp.SpringMVC.model.course.TestResult;
 
 import java.util.List;
 
@@ -18,11 +17,6 @@ public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-
-    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "details", referencedColumnName = "id")
-    //@JsonUnwrapped
-    private StudentDetails details;
 
     @ManyToOne
     @JoinColumn(name="group_id", nullable=false)

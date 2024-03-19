@@ -35,4 +35,4 @@ build/
 
 ### Database data ###
 *.db
-src/main/docker/**/data/**
+src/main/docker/**/data*/**

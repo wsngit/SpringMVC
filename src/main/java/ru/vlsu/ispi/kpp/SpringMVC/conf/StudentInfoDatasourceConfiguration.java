@@ -33,7 +33,7 @@ public class StudentInfoDatasourceConfiguration {
     @Value("${spring.jpa.hibernate.ddl-auto}")
     private String ddl_auto;
 
-    @Value("${spring.datasource.info.data}")
+    @Value("${spring.datasource.info.data:}")
     private String data_file;
 
     @Bean(name="infoProperties")
@@ -73,8 +73,8 @@ public class StudentInfoDatasourceConfiguration {
     @Bean
     public DataSourceInitializer dataSourceInitializer(@Qualifier("infoDatasource") DataSource datasource) {
         ResourceDatabasePopulator resourceDatabasePopulator = new ResourceDatabasePopulator();
-        //resourceDatabasePopulator.addScript(new ClassPathResource("schema-h21.sql"));
-        resourceDatabasePopulator.addScript(new ClassPathResource(data_file));
+        if(data_file.length()>0)
+            resourceDatabasePopulator.addScript(new ClassPathResource(data_file));
 
         DataSourceInitializer dataSourceInitializer = new DataSourceInitializer();
         dataSourceInitializer.setDataSource(datasource);

@@ -6,9 +6,12 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.server.ResponseStatusException;
 import ru.vlsu.ispi.kpp.SpringMVC.model.student.Group;
 import ru.vlsu.ispi.kpp.SpringMVC.model.student.Student;
+import ru.vlsu.ispi.kpp.SpringMVC.model.info.StudentDetails;
+import ru.vlsu.ispi.kpp.SpringMVC.repo.info.StudentDetailsRepository;
 import ru.vlsu.ispi.kpp.SpringMVC.repo.student.GroupRepository;
 import ru.vlsu.ispi.kpp.SpringMVC.repo.student.StudentRepository;
 
@@ -21,6 +24,7 @@ import java.util.Optional;
 public class StudentGroupService {
     private GroupRepository groupRepository;
     private StudentRepository studentRepository;
+    private StudentDetailsRepository studentDetailsRepository;
 
     public List<Group> getGroups(){
         return groupRepository.findAll();
@@ -78,7 +82,33 @@ public class StudentGroupService {
                         Sort.by(Sort.Direction.ASC, "id")
                 )
         );
-        return studentPage.getContent();
+        List<Student> students = studentPage.getContent();
+        List<Long> studentId = students.stream().map(Student::getId).toList();
+        System.out.println(studentId);
+        List<StudentDetails> detailsList = studentDetailsRepository.findAllByStudent(studentId);
+        return students.stream().map(student -> {
+            Optional<StudentDetails> details = detailsList.stream().filter(info -> info.getStudent() == student.getId()).findFirst();
+            details.ifPresent(student::setDetails);
+            return student;
+        }).toList();
+    }
+
+    public Student getStudent(long sid) {
+        Optional<Student> student = studentRepository.findById(sid);
+        checkOptional(student,  "student not found");
+        Optional<StudentDetails> stDetails = studentDetailsRepository.findByStudent(sid);
+        if(stDetails.isPresent()) student.get().setDetails(
+                stDetails.get()
+        );
+        return student.get();
+    }
+    @Transactional
+    public void deleteStudent(long sid) {
+        Optional<Student> student = studentRepository.findById(sid);
+        checkOptional(student,  "student not found");
+        studentRepository.delete(student.get());
+        Optional<StudentDetails> stDetails = studentDetailsRepository.findByStudent(sid);
+        stDetails.ifPresent(studentDetails -> studentDetailsRepository.delete(studentDetails));
     }
 
     public static void checkOptional(Optional obj, String message){
@@ -86,4 +116,6 @@ public class StudentGroupService {
                 HttpStatus.NOT_FOUND, message
         );
     }
+
+
 }

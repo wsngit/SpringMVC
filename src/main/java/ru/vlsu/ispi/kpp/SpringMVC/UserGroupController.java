@@ -58,4 +58,15 @@ public class UserGroupController {
     public List<Student> students(@RequestParam int page, @RequestParam int pageSize){
         return studentGroupService.allStudents(page, pageSize);
     }
+
+    @GetMapping("/student/{sid}")
+    public Student student(@PathVariable long sid){
+        return studentGroupService.getStudent(sid);
+    }
+
+    @DeleteMapping("/student/{sid}")
+    public int studentDelete(@PathVariable long sid){
+        studentGroupService.deleteStudent(sid);
+        return 0;
+    }
 }

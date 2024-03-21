@@ -1,10 +1,12 @@
 package ru.vlsu.ispi.kpp.SpringMVC.model.student;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import ru.vlsu.ispi.kpp.SpringMVC.model.info.StudentDetails;
 
 import java.util.List;
 
@@ -31,5 +33,9 @@ public class Student {
     @OneToMany(mappedBy="student")
     @JsonIgnore
     private List<TestResult> testResults;
+
+    @Transient
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    private StudentDetails details;
 
 }

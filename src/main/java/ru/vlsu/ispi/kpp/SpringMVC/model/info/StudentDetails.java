@@ -30,5 +30,6 @@ public class StudentDetails {
             (shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
     private Date birthdate;
 
+    @JsonIgnore
     private long student;
 }

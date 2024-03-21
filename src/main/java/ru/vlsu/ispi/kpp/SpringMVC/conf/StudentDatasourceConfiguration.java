@@ -29,9 +29,6 @@ public class StudentDatasourceConfiguration {
     @Value("${spring.jpa.hibernate.ddl-auto}")
     private String ddl_auto;
 
-    @Value("${spring.datasource.student.data}")
-    private String data_file;
-
     @Primary
     @Bean(name="studentProperties")
     @ConfigurationProperties("spring.datasource.student")

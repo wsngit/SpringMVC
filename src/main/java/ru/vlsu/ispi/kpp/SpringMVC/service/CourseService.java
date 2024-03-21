@@ -2,6 +2,7 @@ package ru.vlsu.ispi.kpp.SpringMVC.service;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import ru.vlsu.ispi.kpp.SpringMVC.model.student.Course;
 import ru.vlsu.ispi.kpp.SpringMVC.model.student.Group;
 import ru.vlsu.ispi.kpp.SpringMVC.model.student.Student;
@@ -15,6 +16,7 @@ import java.util.Optional;
 import static ru.vlsu.ispi.kpp.SpringMVC.service.StudentGroupService.checkOptional;
 
 @Service
+@Transactional
 @AllArgsConstructor
 public class CourseService {
     private CourseRepository courseRepository;
